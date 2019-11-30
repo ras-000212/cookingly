@@ -6,7 +6,7 @@ function authentification(){
     $password=$_POST['password'];
 
     if($login == null and $ $password == null){
-        require("../views/home.php");
+        require("/views/home.php");
     }else{
         
         if(sign_in($login,$password)){
@@ -15,7 +15,7 @@ function authentification(){
             header("Location:" .$url);
         }else{
             $_SESSION['error']='invalid login or password';
-            require("../views/home.php");
+            require("/views/home.php");
         }
     }
 }
