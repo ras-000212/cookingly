@@ -2,7 +2,7 @@
 
 /*function that connect*/
 function authentification(){
-    include (".model/users.php")
+    include (".model/users.php");
     $login=$_POST['login'];
     $password=$_POST['password'];
 
