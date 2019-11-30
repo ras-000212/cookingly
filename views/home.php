@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<!DOCTYPE php>
-
 <html>
 <head>
     <title>Home</title>
