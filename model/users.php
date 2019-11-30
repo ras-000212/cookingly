@@ -19,7 +19,7 @@ try {
 }
 
 /*verify the login and password entered*/
-function sign_in ($login,$password){
+function user_exists ($login,$password){
     if(user_exists($login)){
         $stmt = $pdo->query("select * from user where login='$login' and password = '$password'");
         if($stmt){
@@ -55,7 +55,7 @@ function email_exists($email){
 }
 
 /* add user in the DB */
-function sign_up($login,$password,$last_name,$first_name,$email) {
+function create_user($login,$password,$last_name,$first_name,$email) {
     if(login_exists($login) or email_exist($email)){
         return false;
     }
