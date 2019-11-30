@@ -20,6 +20,24 @@ try {
 
 /*verify the login and password entered*/
 function user_exists ($login,$password){
+    /*connect into the DB*/
+    $host = 'localhost';
+    $db   = 'galiixy';
+    $user = 'galiixy';
+    $pass = 'Jobslpxi';
+    $charset = 'utf8mb4';
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    try {
+        $pdo = new PDO($dsn, $user, $pass, $options);
+    } catch (\PDOException $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
     if(login_exists($login)){
         $stmt = $pdo->query("select * from user where login='$login' and password = '$password'");
         if($stmt){
@@ -32,6 +50,24 @@ function user_exists ($login,$password){
 
 /* verify if the login already exist in DB*/
 function login_exists ($login){
+    /*connect into the DB*/
+    $host = 'localhost';
+    $db   = 'galiixy';
+    $user = 'galiixy';
+    $pass = 'Jobslpxi';
+    $charset = 'utf8mb4';
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    try {
+        $pdo = new PDO($dsn, $user, $pass, $options);
+    } catch (\PDOException $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
     try{
         $stmt = $pdo->prepare('select Id_User from User where login=?');
         $stmt->execute([$login]);
@@ -45,6 +81,24 @@ function login_exists ($login){
 
 /* verify if the mail already exist in DB*/
 function email_exists($email){
+    /*connect into the DB*/
+    $host = 'localhost';
+    $db   = 'galiixy';
+    $user = 'galiixy';
+    $pass = 'Jobslpxi';
+    $charset = 'utf8mb4';
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    try {
+        $pdo = new PDO($dsn, $user, $pass, $options);
+    } catch (\PDOException $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
     $stmt = $pdo->query("select * from user where email='$email'");
     if ($stmt){
         return true;
