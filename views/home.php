@@ -9,7 +9,7 @@
 
     <?php include ('./header.php');?>
 
-    <form method="post" action="index.php?controle=controllers&action=signIn">
+    <form method="post" action="index.php?controle=controllers&action=authentification">
         <fieldset>
             <legend>Sign In</legend>
             <label for="login">Login</label> : <input type="text" name="login" id="login" placeholder="Cookingly" maxlength="12" autofocus required/>
