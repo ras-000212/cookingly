@@ -20,7 +20,7 @@ try {
 
 /*verify the login and password entered*/
 function user_exists ($login,$password){
-    if(user_exists($login)){
+    if(login_exists($login)){
         $stmt = $pdo->query("select * from user where login='$login' and password = '$password'");
         if($stmt){
             return true;
@@ -37,7 +37,7 @@ function login_exists ($login){
         $stmt->execute([$login]);
     }catch(\PDOException $e){
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
-        return false
+        return false;
     }
     return true;
 }
