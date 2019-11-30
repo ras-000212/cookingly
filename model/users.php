@@ -42,7 +42,6 @@ function login_exists ($login){
 }
 
 
-
 /* verify if the mail already exist in DB*/
 function email_exists($email){
     $stmt = $pdo->query("select * from user where email='$email'");
