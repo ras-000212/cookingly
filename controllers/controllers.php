@@ -11,7 +11,7 @@ function authentification(){
     }else{
         
         if(user_exists($login,$password)){
-            $_SESSION['pseudo']=$pseudo;
+            $_SESSION['login']=$login;
             $url ="index.php?controle=controllers&action=fridge";
             header("Location:" .$url);
         }else{
