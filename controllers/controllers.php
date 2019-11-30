@@ -6,7 +6,7 @@ function authentification(){
     $login=$_POST['login'];
     $password=$_POST['password'];
 
-    if($login == null and $ $password == null){
+    if($login == null and $password == null){
         require ("./views/home.php");
     }else{
         
