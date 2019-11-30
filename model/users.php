@@ -32,8 +32,8 @@ function user_exists ($login,$password){
 
 /* verify if the login already exist in DB*/
 function login_exists ($login){
-    $stmt = $pdo->prepare("select * from user where login=?");
     try{
+        $stmt = $pdo->prepare("select * from User where login=?");
         $stmt->execute([$login]);
     }catch(\PDOException $e){
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
