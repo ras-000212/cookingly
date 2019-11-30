@@ -22,6 +22,7 @@ function authentification(){
 
 
 function sign_up(){
+    require ("./model/users.php");
     if (count($_POST)==0){
         require ("./views/signUp.php");
     }
