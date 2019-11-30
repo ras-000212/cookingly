@@ -2,6 +2,7 @@
 
 /*function that connect*/
 function authentification(){
+    include (".model/users.php")
     $login=$_POST['login'];
     $password=$_POST['password'];
 
@@ -22,7 +23,7 @@ function authentification(){
 
 
 function sign_up(){
-    require ("./model/users.php");
+    include ("./model/users.php");
     if (count($_POST)==0){
         require ("./views/signUp.php");
     }
