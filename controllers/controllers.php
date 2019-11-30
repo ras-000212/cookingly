@@ -35,7 +35,7 @@ function sign_up(){
     $last_name = $_POST['last_name'];
     $email=$_POST['email'];
 
-    if(login_exist($login)){
+    if(login_exists($login)){
         $_SESSION['error_login']='login already use';
     }
     elseif(email_exists($email)){
