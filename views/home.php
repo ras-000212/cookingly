@@ -9,7 +9,7 @@
 
     <?php include ('./header.php');?>
 
-    <form method="post" action="index.php?controle=users&action=signIn">
+    <form method="post" action="index.php?controle=controllers&action=signIn">
         <fieldset>
             <legend>Sign In</legend>
             <label for="login">Login</label> : <input type="text" name="login" id="login" placeholder="Cookingly" maxlength="12" autofocus required/>
@@ -19,7 +19,7 @@
             <input type="submit" value="Let's Cook!" />
         </fieldset>
     </form>
-    <a href="./signUp.php">Create Account</a>
+    <a href="index.php?controle=controllers&action=sign_up">Create Account</a>
 
     <?php include ('./footer.php')?>
 
