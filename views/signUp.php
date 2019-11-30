@@ -12,7 +12,7 @@
 
     <?php include ('./header.php');?>
 
-    <form method="post" action="index.php?controle=controllers&action=signUp">
+    <form method="post" action="index.php?controle=controllers&action=sign_up">
         <fieldset>
             <legend>Sign Up</legend>
             <label>First Name: <input type="text" name="first_name" placeholder="Cookingly" maxlength="30" autofocus required/></label>
