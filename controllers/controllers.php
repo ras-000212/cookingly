@@ -23,7 +23,7 @@ function authentification(){
 
 function sign_up(){
     if (count($_POST)==0){
-        require ("./views/signUp.php")
+        require ("./views/signUp.php");
     }
 
     $login = $_POST['login'];
