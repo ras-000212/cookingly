@@ -7,7 +7,7 @@ if (isset($_GET['controle']) and isset($_GET['action'])){
 }
 else{
     $controle ="controllers";
-    $action="home";}
+    $action="authentification";}
 
 require ('./controllers/' . $controle . '.php');
 $action();
