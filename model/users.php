@@ -39,7 +39,7 @@ function user_exists ($login,$password){
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
     }
     if(login_exists($login)){
-        $stmt = $pdo->query("select * from user where login='$login' and password = '$password'");
+        $stmt = $pdo->query("select * from User where login='$login' and password = '$password'");
         if($stmt){
             return true;
         }
@@ -99,7 +99,7 @@ function email_exists($email){
     } catch (\PDOException $e) {
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
     }
-    $stmt = $pdo->query("select * from user where email='$email'");
+    $stmt = $pdo->query("select * from User where email='$email'");
     if ($stmt){
         return true;
     }
@@ -133,10 +133,10 @@ function change_login($login,$newlogin){
 
 /*change password of a user*/
 function change_password($login,$password){
-    $pdo->query("update Users set password='$password' where login='$login'");
+    $pdo->query("update User set password='$password' where login='$login'");
 }
 
 /*delete a user from the DB*/
 function delete_user($login){
-    $pdo->query("delete form user where login='$$login'");
+    $pdo->query("delete form User where login='$login'");
 }
