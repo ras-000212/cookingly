@@ -35,7 +35,7 @@ function login_exists_db ($login){
 function email_exists_db($email){
     include ('./model/connectDB.php');
     $stmt = $pdo->query("select * from User where email='$email'");
-    if ($stmt){
+    if ($res = $stmt->fetch()){
         //true if the email exists
         return true;
     }
@@ -48,7 +48,7 @@ function email_exists_db($email){
 /* add user in the DB */
 function create_user_db($login,$password,$last_name,$first_name,$email) {
     include ('./model/connectDB.php');
-    if(login_exists_db($login) or email_exist($email)){
+    if(login_exists_db($login) or email_exists_db($email)){
         return false;
     }
     else{
