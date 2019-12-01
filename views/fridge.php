@@ -10,7 +10,7 @@
 
 <body>
 
-    <?php include ('index.php?controle=users&action=head');?>
+    <?php include ('./views/header.php');?>
 
     <div id="storage"> 
         <table align="left" border="1px" style ="width:300px; line-height:30px;">
@@ -42,7 +42,7 @@
         <h1>Ajout d'aliments</h1>	
     </div>
 
-    <?php include ('index.php?controle=users&action=foot')?>
+    <?php include ('./views/footer.php');?>
 
 </body>
 </html>
