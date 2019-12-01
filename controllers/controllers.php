@@ -96,5 +96,5 @@ function change_login(){
         else{
             require ("./views/profile.php");
         }
+    }      
 }
-
