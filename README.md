@@ -1,9 +1,3 @@
----
-title: Cookingly
-created: '2019-12-01T19:52:42.077Z'
-modified: '2019-12-01T21:51:59.882Z'
----
-
 # Cookingly
 It's a website that will help you to make your life easier by having a remote fridge and see what you have whenever and wherever you want.
 
