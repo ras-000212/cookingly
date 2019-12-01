@@ -2,8 +2,8 @@
 /*function that connect*/
 function authentification(){
     include ("./model/users.php");
-    $login=$_POST['login'];
-    $password=$_POST['password'];
+    $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
+    $password=!empty($_POST['password']) ? $_POST['password'] : NULL;
 
     if($login == null and $password == null){
         require ("./views/home.php");
