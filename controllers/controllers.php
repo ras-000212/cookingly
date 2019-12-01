@@ -66,6 +66,14 @@ function fridge(){
      require ("./views/fridge.php");
 }
 
+/*delete your account*/
+function delete(){
+    include ("./model/users.php");
+    $login = $_POST['login'];
+    delete_user_db($login)
+    require("./views/home.php");
+}
+
 function food_user(){
     include ("./model/fridge.php");
     $login = $_SESSION['login'];
