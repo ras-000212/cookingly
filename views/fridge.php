@@ -24,7 +24,7 @@
             </t>
 
         <?php
-            if($row=$res->fetch() != 0 ){
+            if($row=$res->fetch() != null ){
                 do{?>
                 <tr>
                         <td> <?php echo $row['Name'] ?> </td>
