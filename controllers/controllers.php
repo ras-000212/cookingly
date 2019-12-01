@@ -50,10 +50,24 @@ function sign_up(){
 
 }
 
+/*sign Out*/
+function signOut(){
+    include ("./model/users.php");
+    session_start();
+    session_destroy();
+    require ("./views/home.php");
+}
+
 /*open the fridge page*/
 function fridge(){
      include ("./model/users.php");
      require ("./views/fridge.php");
+}
+
+/*open the profile page*/
+function profile(){
+    include ("./model/users.php");
+    require ("./views/profile.php");
 }
 
 /*add header on top of every page*/
@@ -66,4 +80,25 @@ function header(){
 function footer(){
     include ("./model/users.php");
     require ("./views/footer.php");
+}
+
+/*change login */
+function change_login(){
+    include ("./model/users.php");
+    $login=$_POST['login'];
+    $new_login=$_POST['new_login'];
+    if (count($_POST)==0){
+        require ("./views/change_login.php");
+    }else{
+        if(!change_login($login)){
+            $_SESSION['error_login']='login already used';
+        }
+        else{
+            require ("./views/profile.php");
+        }
+}
+
+/*change password*/
+function change_password(){
+
 }
