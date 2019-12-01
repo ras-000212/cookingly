@@ -4,13 +4,10 @@
 <html>
 <head>
     <title>Sign Up</title>
-   <!-- <link rel="stylesheet" type="text/css" href="style.css"/> A DEFINIR-->
     <meta charset="utf-8">
 </head>
 
 <body>
-
-    <?php include ('./header.php');?>
 
     <form method="post" action="index.php?controle=controllers&action=sign_up">
         <fieldset>
@@ -31,7 +28,7 @@
         </fieldset>
     </form>
 
-    <?php include ('./footer.php')?>
+    <?php include ('index.php?controle=controllers&action=footer')?>
 
 </body>
 </html>
