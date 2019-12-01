@@ -84,7 +84,14 @@ function delete_user_db($login){
 /* add food to the fridge of the user*/
 function add_food_db($login,$food_name,$quantity){
     include('./model/connectDB.php');
+    $IdUser=getUserId($login);
+    $IdFood=getFoodId($food_name);
     
+    $res=$pdo->query("Select Quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'");
+    if($res==null){
+       $pdo->query("INSERT INTO Food (Id_Food,Id_User,Quantity) values($IdFood,$IdUser,$quantity)");
+
+
    }
 /*get food Id */
 function getfoodId($food_name){
