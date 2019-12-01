@@ -56,13 +56,12 @@ function create_user_db($login,$password,$last_name,$first_name,$email) {
 }
 
 /*change login of a user*/
-function change_login_db($newlogin){
+function change_login_db($login, $newlogin){
     include ('./model/connectDB.php');
     if(login_exists_db($newlogin)){
         return false;
     }else{
-        $sql="UPDATE User set login=? where login=?";
-        $pdo->prepare($sql)->execute([$newlogin]);
+        $pdo->query("update User set login='$newlogin' where login='$login'");
         return true;
     }
 }
@@ -76,5 +75,5 @@ function change_password_db($login,$password){
 /*delete a user from the DB*/
 function delete_user_db($login){
     include ('./model/connectDB.php');
-    $pdo->query("delete form User where login='$login'");
+    $pdo->query("delete from User where login='$login'");
 }
