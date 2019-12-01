@@ -137,6 +137,15 @@ function add_food(){
 
 /*change the password*/
 function change_password(){
-    
+    include ("./model/users.php");
+    $login=$_SESSION['login'];
+    $new_password=$_POST['new_password'];
+
+    if($password !== $password_confirm){
+        $_SESSION['error_password']='not the same password';
+    }elseif{
+        $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
+        change_password_db($login,$hash);
+    }
 }
 

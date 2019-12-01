@@ -10,7 +10,7 @@
 <body>
 <?php include ('./views/header.php');?>
 
-    <form method="post" action="index.php?controle=controllers&action=sign_up">
+    <form method="post" action="index.php?controle=controllers&action=change_password">
         <fieldset>
             <legend>Change password</legend>
             <label>Password: <input type="password" name="password" maxlength="8" required/></label> 
