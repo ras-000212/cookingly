@@ -103,3 +103,14 @@ function change_login(){
         }
     }      
 }
+/*add food to storage */
+function add-food(){
+    include ("./model/users.php");
+    $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
+
+    $food_name=!empty($_POST['login']) ? $_POST['login'] : NULL;
+    
+    $quantity=!empty($_POST['login']) ? $_POST['login'] : NULL;
+    
+}
+
