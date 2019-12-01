@@ -28,7 +28,6 @@ function sign_up(){
         require ("./views/signUp.php");
     }else{
 
-
         $login = $_POST['login'];
         $password = $_POST['password'];
         $password_confirm = $_POST['password_confirm'];
@@ -49,5 +48,22 @@ function sign_up(){
         }
     }
 
+}
 
+/*open the fridge page*/
+function fridge(){
+     include ("./model/users.php");
+     require ("./views/fridge.php");
+}
+
+/*add header on top of every page*/
+function header(){
+    include ("./model/users.php");
+    require ("./views/header.php");
+}
+
+/*add footer on the bottom of every page*/
+function footer(){
+    include ("./model/users.php");
+    require ("./views/footer.php");
 }
