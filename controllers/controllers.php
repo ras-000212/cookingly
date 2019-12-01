@@ -108,9 +108,10 @@ function add-food(){
     include ("./model/users.php");
     $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
 
-    $food_name=!empty($_POST['login']) ? $_POST['login'] : NULL;
+    $food_name=!empty($_POST['list-food']) ? $_POST['list-food'] : NULL;
     
-    $quantity=!empty($_POST['login']) ? $_POST['login'] : NULL;
+    $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
+    
     
 }
 
