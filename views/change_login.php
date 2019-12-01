@@ -18,7 +18,7 @@
         <label>New Login: <input type="text" name="new_login" placeholder="CookDelice" maxlength="12" autofocus required/></label>
         <input type="submit" value="Update your login"/>
     </form>
-    <p><a href="index.php?controle=users&action=profile">Go to your profile page</a></p>
+    <p><a href="index.php?controle=controllers&action=profile">Go to your profile page</a></p>
 
     <?php include ('./views/footer.php')?>
 
