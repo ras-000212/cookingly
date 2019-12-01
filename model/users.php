@@ -4,7 +4,7 @@ function user_exists_db ($login,$password){
     include ('./model/connectDB.php');
     if(login_exists_db($login)){
         $stmt = $pdo->query("select * from User where login='$login' and password = '$password'");
-        if($stmt){
+        if($row = $stmt->fetch()){
             return true;
         }
         return false;
@@ -19,7 +19,7 @@ function login_exists_db ($login){
         $stmt = $pdo->prepare('select Id_User from User where login=?');
         $stmt->execute([$login]);
         //true if the login exists
-        if ($stmt){
+        if ($res = $stmt->fetch()){
             return true;
         }
         return false;
