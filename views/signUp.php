@@ -28,6 +28,8 @@
         </fieldset>
     </form>
 
+    <p><a href="index.php?controle=controllers&action=authentification">Go to the sign in page</a></p>
+
     <?php include ('./views/footer.php')?>
 
 </body>
