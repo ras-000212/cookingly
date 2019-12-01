@@ -100,8 +100,8 @@ function foot(){
 /*change login */
 function change_login(){
     include ("./model/users.php");
-    $login=$_POST['login'];
-    $new_login=$_POST['new_login'];
+    $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
+    $new_login=!empty($_POST['new_login']) ? $_POST['new_login'] : NULL;
     if (count($_POST)==0){
         require ("./views/change_login.php");
     }else{
