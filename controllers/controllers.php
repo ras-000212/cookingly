@@ -9,7 +9,7 @@ function authentification(){
         require ("./views/home.php");
     }else{
         
-        if(user_exists($login,$password)){
+        if(user_exists_db($login,$password)){
             $_SESSION['login']=$login;
             $url ="index.php?controle=controllers&action=fridge";
             header("Location:" .$url);
@@ -35,16 +35,16 @@ function sign_up(){
         $last_name = $_POST['last_name'];
         $email=$_POST['email'];
 
-        if(login_exists($login)){
+        if(login_exists_db($login)){
             $_SESSION['error_login']='login already use';
         }
-        elseif(email_exists($email)){
+        elseif(email_exists_db($email)){
             $_SESSION['error_email']='email already use';
         }
         elseif($password !== $password_confirm){
             $_SESSION['error_password']='not the same password';
         }else{
-            create_user($login,$password,$last_name,$first_name,$email);
+            create_user_db($login,$password,$last_name,$first_name,$email);
         }
     }
 
@@ -90,7 +90,7 @@ function change_login(){
     if (count($_POST)==0){
         require ("./views/change_login.php");
     }else{
-        if(!change_login($login)){
+        if(!change_login_db($login)){
             $_SESSION['error_login']='login already used';
         }
         else{
