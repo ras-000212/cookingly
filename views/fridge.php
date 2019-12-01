@@ -86,7 +86,7 @@ try {
 
 				</select>
 			</datalist>
-			<input type="text" name="quantity-add" placeholder="quantity to add">
+			<input type="number" name="quantity-add" placeholder="quantity to add">
 			<input type="submit" value="Add food to your storage!">
 		</div>	
 	</form>    
