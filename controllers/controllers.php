@@ -73,7 +73,7 @@ function food_user(){
     try{
         $foods=get_user_db($login);
         return $foods;
-    }catch{
+    }catch (\PDOException $e){
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
         return $foods;
     }
