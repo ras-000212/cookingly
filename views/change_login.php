@@ -3,15 +3,14 @@
 
 <html>
 <head>
-    <title>Change of login</title>
-   <!-- <link rel="stylesheet" type="text/css" href="style.css"/> A DEFINIR-->
+    <title>Change login</title>
     <meta charset="utf-8">
 </head>
 
 
 <body>
 
-    <?php include ('./header.php');?>
+    <?php include ('index.php?controle=users&action=header');?>
 
     <p>Current login: <?php echo $_SESSION['login'] ?></p>
 
@@ -19,9 +18,9 @@
         <label>New Login: <input type="text" name="new_login" placeholder="CookDelice" maxlength="12" autofocus required/><label/>
         <input type="submit" value="Update your login"/>
     </form>
-    <p><a href="profile.php">Go to your profile page</a></p>
+    <p><a href="index.php?controle=users&action=profile">Go to your profile page</a></p>
 
-    <?php include ('./footer.php')?>
+    <?php include ('index.php?controle=users&action=footer')?>
 
 </body>
 </html>
