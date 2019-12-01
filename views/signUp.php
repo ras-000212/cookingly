@@ -27,7 +27,9 @@
             <input type="submit" value="Welcome to your Kitchen!" />
         </fieldset>
     </form>
-
+    
+    <p><a href="index.php?controle=controllers&action=authentification">Go to the sign in page</a></p>
+    
     <?php include ('index.php?controle=controllers&action=footer')?>
 
 </body>
