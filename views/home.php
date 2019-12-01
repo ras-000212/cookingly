@@ -7,7 +7,6 @@
 
 <body>
 
-    <?php include ('./header.php');?>
 
     <form method="post" action="index.php?controle=controllers&action=authentification">
         <fieldset>
@@ -21,7 +20,7 @@
     </form>
     <a href="index.php?controle=controllers&action=sign_up">Create Account</a>
 
-    <?php include ('./footer.php')?>
+    <?php include ('index.php?controle=controllers&action=footer')?>
 
 </body>
 </html>
