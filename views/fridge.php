@@ -26,11 +26,7 @@ try {
 } catch(\PDOException $e){
 	throw new \PDOException($e->getMessage(),(int)$e->getCode());
 }
-    
-    $res =$pdo->query("Select f.name as Name,food.quantity as Quantity, f.nutriction_fact as Nutriction from Food_Definition f,Food food,User u
-WHERE u.login='$_SESSION[login]'
-AND u.Id_User=food.Id_User
-AND food.Id_Food=f.Id_Food");
+
 ?>
 
     <?php include ('./views/header.php');?>
@@ -47,7 +43,7 @@ AND food.Id_Food=f.Id_Food");
             </t>
 
         <?php
-            include ('./model/connectDB.php');
+            $login=$_SESSION['login'];
 
             $res =$pdo->query("Select f.name as Name,food.quantity as Quantity, f.nutriction_fact as Nutriction from Food_Definition f,Food food,User u
             WHERE u.login='$login'
