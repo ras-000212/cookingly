@@ -18,13 +18,16 @@ function login_exists_db ($login){
     try{
         $stmt = $pdo->prepare('select Id_User from User where login=?');
         $stmt->execute([$login]);
+        //true if the login exists
+        if ($stmt){
+            return true;
+        }
+        return false;
     }catch(\PDOException $e){
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
         //false if the login doesn't exist
         return false;
     }
-    //true if the login exists
-    return true;
 }
 
 
