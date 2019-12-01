@@ -118,7 +118,7 @@ function add_food(){
         
      }
     elseif(quantity>0){
-        
+        add_food_db($login,$food_name,$quantity);
     }
 
 }
