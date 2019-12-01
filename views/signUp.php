@@ -9,8 +9,6 @@
 
 <body>
 
-    <?php include ('index.php?controle=controllers&action=header');?>
-
     <form method="post" action="index.php?controle=controllers&action=sign_up">
         <fieldset>
             <legend>Sign Up</legend>
