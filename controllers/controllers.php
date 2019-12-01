@@ -117,7 +117,7 @@ function add_food(){
         require ("./views/fridge.php");
         
      }
-    elsif(quantity>0){
+    elseif(quantity>0){
         add_food_db($login,$food_name,$quantity);
         require ("./views/fridge.php");
     }
