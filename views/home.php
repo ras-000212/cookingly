@@ -23,7 +23,7 @@
     </form>
     <a href="index.php?controle=controllers&action=sign_up">Create Account</a>
 
-    <?php include ('index.php?controle=controllers&action=foot')?>
+    <?php include ('./views/footer.php')?>
 
 </body>
 </html>
