@@ -101,7 +101,7 @@ function getfoodId($food_name){
 /*get user Id */
 function getUserId($login){
     include('./model/connectDB.php');
-    $UserId= $pdo->query("Select Id_User from User where login='$login'");
+    $UserId=$pdo->query("Select Id_User from User where login='$login'");
     return $UserId;
    }
 
