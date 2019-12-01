@@ -127,3 +127,8 @@ function add_food(){
 
 }
 
+/*change the password*/
+function change_password(){
+    
+}
+
