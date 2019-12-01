@@ -1,17 +1,16 @@
 <?php
-
 /*function that connect*/
 function authentification(){
-    include (".model/users.php");
+    include ("./model/users.php");
     $login=$_POST['login'];
     $password=$_POST['password'];
 
-    if($login == null and $ $password == null){
+    if($login == null and $password == null){
         require ("./views/home.php");
     }else{
         
         if(user_exists($login,$password)){
-            $_SESSION['pseudo']=$pseudo;
+            $_SESSION['login']=$login;
             $url ="index.php?controle=controllers&action=fridge";
             header("Location:" .$url);
         }else{
@@ -23,6 +22,7 @@ function authentification(){
 
 
 function sign_up(){
+    
     include ("./model/users.php");
     if (count($_POST)==0){
         require ("./views/signUp.php");
