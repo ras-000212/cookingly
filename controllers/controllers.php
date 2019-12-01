@@ -53,7 +53,7 @@ function sign_up(){
 /*sign Out*/
 function signOut(){
     include ("./model/users.php");
-    session_start();
+    //session_start();
     session_destroy();
     require ("./views/home.php");
 }
