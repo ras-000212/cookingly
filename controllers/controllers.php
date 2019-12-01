@@ -45,6 +45,7 @@ function sign_up(){
             $_SESSION['error_password']='not the same password';
         }else{
             create_user_db($login,$password,$last_name,$first_name,$email);
+            require("./views/fridge.php");
         }
     }
 
