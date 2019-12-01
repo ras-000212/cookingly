@@ -97,6 +97,7 @@ function change_login(){
             $_SESSION['error_login']='login already used';
         }
         else{
+            
             require ("./views/profile.php");
         }
     }      
