@@ -10,7 +10,7 @@
 
 <body>
 
-    <?php include ('index.php?controle=users&action=header');?>
+    <?php include ('index.php?controle=users&action=head');?>
 
     <p>Current login: <?php echo $_SESSION['login'] ?></p>
 
@@ -20,7 +20,7 @@
     </form>
     <p><a href="index.php?controle=users&action=profile">Go to your profile page</a></p>
 
-    <?php include ('index.php?controle=users&action=footer')?>
+    <?php include ('index.php?controle=users&action=foot')?>
 
 </body>
 </html>

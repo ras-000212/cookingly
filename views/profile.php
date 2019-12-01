@@ -10,7 +10,7 @@
 
 <body>
 
-    <?php include ('index.php?controle=users&action=header');?>
+    <?php include ('index.php?controle=users&action=head');?>
 
     <h1>Welcome to your account page</h1>
 
@@ -34,7 +34,7 @@
     }
     </script>
 
-    <?php include ('index.php?controle=users&action=footer')?>
+    <?php include ('index.php?controle=users&action=foot')?>
 
 </body>
 </html>
