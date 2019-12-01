@@ -92,6 +92,12 @@ function getfoodId($food_name){
     $foodId=$pdo->query("Select Id_Food from Food_Definition where name ='$food_name'");
     return $foodId;
    }
+/*get user Id */
+function getUserId($login){
+    include('./model/connectDB.php');
+    $UserId= $pdo->query("Select Id_User from User where login='$login'");
+    return $UserId;
+   }
 
     
 
