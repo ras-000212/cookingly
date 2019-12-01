@@ -47,7 +47,6 @@ AND food.Id_Food=f.Id_Food");
             </t>
 
         <?php
-<<<<<<< HEAD
             include ('./model/connectDB.php');
 
             $res =$pdo->query("Select f.name as Name,food.quantity as Quantity, f.nutriction_fact as Nutriction from Food_Definition f,Food food,User u
@@ -66,24 +65,6 @@ AND food.Id_Food=f.Id_Food");
                 <tr>
                 <td colspan=3> No food here ! Please add some food !</td>
                 </tr> <?php }?>
-=======
-            try{
-                if($row=$res->fetch()){
-                    do{?>
-                    <tr>
-                            <td> <?php echo $row['Name'] ?> </td>
-                        <td> <?php echo $row['Nutriction'] ?> </td>
-                        <td> <?php echo $row['Quantity'] ?> </td>
-                    </tr>
-                    <?php }	while($row=$res->fetch());
-                    } else{?>
-                    <tr>
-                    <td colspan=3> No food here ! Please add some food !</td>
-                    </tr> <?php }}
-            catch (PDOException $e) {
-                print $e->getMessage();
-            } ?>
->>>>>>> 194beb50d350c9921edee58adc4dc010c916e136
         </table>
     </div> 
     <div id="add">
