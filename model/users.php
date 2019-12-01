@@ -79,6 +79,7 @@ function change_password_db($login,$password){
 /*delete a user from the DB*/
 function delete_user_db($login){
     include ('./model/connectDB.php');
+    echo("delete");
     $pdo->query("delete from User where login='$login'");
 }
 /* add food to the fridge of the user*/
