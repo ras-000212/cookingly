@@ -138,7 +138,7 @@ function add_food(){
 /*change the password*/
 function change_password(){
     include ("./model/users.php");
-    require ("./views/cange_password.php");
+    require ("./views/change_password.php");
     $login=$_SESSION['login'];
     $new_password=$_POST['new_password'];
 
