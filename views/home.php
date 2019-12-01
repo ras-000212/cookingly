@@ -7,9 +7,9 @@
 
 <body>
 
-    <?php include ('./header.php');?>
+    <?php include ('index.php?controle=controllers&action=header');?>
 
-    <form method="post" action="index.php?controle=controllers&action=signIn">
+    <form method="post" action="index.php?controle=controllers&action=authentification">
         <fieldset>
             <legend>Sign In</legend>
             <label for="login">Login</label> : <input type="text" name="login" id="login" placeholder="Cookingly" maxlength="12" autofocus required/>
@@ -21,7 +21,7 @@
     </form>
     <a href="index.php?controle=controllers&action=sign_up">Create Account</a>
 
-    <?php include ('./footer.php')?>
+    <?php include ('index.php?controle=controllers&action=footer')?>
 
 </body>
 </html>
