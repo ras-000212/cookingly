@@ -20,7 +20,7 @@ function exist_food_db($name_food) {
           return true;
      }
      else {
-          return false
+          return false;
      }
 }
 
