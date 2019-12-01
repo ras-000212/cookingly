@@ -71,13 +71,13 @@ function profile(){
 }
 
 /*add header on top of every page*/
-function header(){
+function head(){
     include ("./model/users.php");
     require ("./views/header.php");
 }
 
 /*add footer on the bottom of every page*/
-function footer(){
+function foot(){
     include ("./model/users.php");
     require ("./views/footer.php");
 }

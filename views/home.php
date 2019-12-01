@@ -20,7 +20,7 @@
     </form>
     <a href="index.php?controle=controllers&action=sign_up">Create Account</a>
 
-    <?php include ('index.php?controle=controllers&action=footer')?>
+    <?php include ('index.php?controle=controllers&action=foot')?>
 
 </body>
 </html>
