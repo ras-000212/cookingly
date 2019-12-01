@@ -64,7 +64,8 @@ function change_login_db($login, $newlogin){
     if(login_exists_db($newlogin)){
         return false;
     }else{
-        $pdo->query("update User set login='$newlogin' where login='$login'");
+        $sql = "update User set login=? where login=?";
+        $pdo->prepare($sql)->execute([$newlogin,$login]);
         return true;
     }
 }
