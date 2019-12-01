@@ -74,7 +74,7 @@ try {
 			<?php $res=$pdo->query("Select Name from Food_Definition");
 			while($row=$res->fetch()){ ?>
 				<option value=" <?php $row['Name']?>"><?php echo $row['Name']?></option>
-				<?php } ,>
+				<?php } ?>
 			</select>
 			<input list="foods" type="text" id="choose-food">
 			<datalist id="foods">
