@@ -7,8 +7,7 @@ function authentification(){
 
     if($login == null and $password == null){
         require ("./views/home.php");
-    }else{
-        
+    }else{ 
         if(user_exists_db($login,$password)){
             $_SESSION['login']=$login;
             $url ="index.php?controle=controllers&action=fridge";
@@ -34,6 +33,7 @@ function sign_up(){
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $email=$_POST['email'];
+        $cost=5;
 
         if(login_exists_db($login)){
             $_SESSION['error_login']='login already use';
@@ -44,6 +44,7 @@ function sign_up(){
         elseif($password !== $password_confirm){
             $_SESSION['error_password']='not the same password';
         }else{
+            $password= password_hash($password,PASSWORD_BCRYPT,["cost"=>$cost]);
             create_user_db($login,$password,$last_name,$first_name,$email);
             require("./views/fridge.php");
         }
@@ -94,11 +95,10 @@ function change_login(){
     if (count($_POST)==0){
         require ("./views/change_login.php");
     }else{
-        if(login_exists_db($new_login)){
+        if(!change_login_db($login, $new_login)){
             $_SESSION['error_login']='login already used';
         }
         else{
-            change_login_db($login, $new_login);
             require ("./views/profile.php");
         }
     }      
