@@ -2,8 +2,9 @@
 /*verify the login and password entered*/
 function user_exists_db ($login,$password){
     include ('./model/connectDB.php');
-    if(login_exists_db($login)){
-        if(password_verify($_POST['password'], $row['password'])){
+    $res = $pdo->query("Select * from User where login = '$login'");
+    if($row = $res->fetch()){
+        if(password_verify($password, $row['password'])){
             return true;
         }
         return false;

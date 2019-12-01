@@ -26,7 +26,7 @@
         var txt;
             if (confirm("Do you confirm the suppression of your account?","Confirmation")) {
                 txt = "You pressed OK!";
-                window.location.replace("index.php?controle=controllers&action=authentification");
+                window.location.replace("index.php?controle=controllers&action=delete");
             } else {
                 txt = "You pressed Cancel!";
             }
