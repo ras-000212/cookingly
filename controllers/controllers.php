@@ -94,11 +94,11 @@ function change_login(){
     if (count($_POST)==0){
         require ("./views/change_login.php");
     }else{
-        if(!change_login_db($login, $new_login)){
+        if(login_exists_db($new_login)){
             $_SESSION['error_login']='login already used';
         }
         else{
-            
+            change_login_db($login, $new_login)
             require ("./views/profile.php");
         }
     }      
