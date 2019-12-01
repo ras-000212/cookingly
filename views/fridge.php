@@ -4,14 +4,13 @@
 <html>
 <head>
     <title>Fridge</title>
-   <!-- <link rel="stylesheet" type="text/css" href="style.css"/> A DEFINIR-->
     <meta charset="utf-8">
 </head>
 
 
 <body>
 
-    <?php include ('./header.php');?>
+    <?php include ('index.php?controle=users&action=header');?>
 
     <div id="storage"> 
         <table align="left" border="1px" style ="width:300px; line-height:30px;">
@@ -43,7 +42,7 @@
         <h1>Ajout d'aliments</h1>	
     </div>
 
-    <?php include ('./footer.php')?>
+    <?php include ('index.php?controle=users&action=footer')?>
 
 </body>
 </html>
