@@ -60,8 +60,24 @@ function signOut(){
 
 /*open the fridge page*/
 function fridge(){
-     include ("./model/users.php");
+     include ("./model/fridge.php");
+
      require ("./views/fridge.php");
+}
+
+function food_user(){
+    include ("./model/fridge.php");
+    $login = $_SESSION['login'];
+    $foods = 'you have no food';
+
+    try{
+        $foods=get_user_db($login);
+        return $foods;
+    }catch{
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        return $foods;
+    }
+    return $foods;
 }
 
 /*open the profile page*/

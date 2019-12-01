@@ -24,6 +24,12 @@
             </t>
 
         <?php
+            include ('./model/connectDB.php');
+
+            $res =$pdo->query("Select f.name as Name,food.quantity as Quantity, f.nutriction_fact as Nutriction from Food_Definition f,Food food,User u
+            WHERE u.login='$login'
+            AND u.Id_User=food.Id_User
+            AND food.Id_Food=f.Id_Food");
             if($row=$res->fetch() != null ){
                 do{?>
                 <tr>
