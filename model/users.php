@@ -81,3 +81,17 @@ function delete_user_db($login){
     include ('./model/connectDB.php');
     $pdo->query("delete from User where login='$login'");
 }
+/* add food to the fridge of the user*/
+function add_food_db($login,$food_name,$quantity){
+    include('./model/connectDB.php');
+    
+   }
+/*get food Id */
+function getfoodId($food_name){
+    include('./model/connectDB.php');
+    $foodId=$pdo->query("Select Id_Food from Food_Definition where name ='$food_name'");
+    return $foodId;
+   }
+
+    
+
