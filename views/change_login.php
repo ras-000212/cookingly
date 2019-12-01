@@ -14,7 +14,7 @@
 
     <p>Current login: <?php echo $_SESSION['login'] ?></p>
 
-    <form method="post" action="index.php?controle=controllers&action=profile">
+    <form method="post" action="index.php?controle=controllers&action=change_login">
         <label>New Login: <input type="text" name="new_login" placeholder="CookDelice" maxlength="12" autofocus required/></label>
         <input type="submit" value="Update your login"/>
     </form>
