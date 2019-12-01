@@ -14,7 +14,7 @@ function add_food_db($name_food,$nutriction_fact) {
 
 function exist_food_db($name_food) {
      include ('./model/connectDB.php');
-     $stmt = pdo->prepare("select * from Food_Definition where name=?");
+     $stmt = $pdo->prepare("select * from Food_Definition where name=?");
      $stmt->execute([$name_food]);
      if ($stmt){
           return true;
