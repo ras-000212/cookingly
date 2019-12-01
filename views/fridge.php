@@ -27,7 +27,7 @@
             if($row=$res->fetch()){
                 do{?>
                 <tr>
-                        <td> <?php echo $row['Name'] ?> </td>
+                    <td> <?php echo $row['Name'] ?> </td>
                     <td> <?php echo $row['Nutriction'] ?> </td>
                     <td> <?php echo $row['Quantity'] ?> </td>
                 </tr>
