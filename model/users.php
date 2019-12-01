@@ -115,7 +115,7 @@ function create_user($login,$password,$last_name,$first_name,$email) {
     }
     else{
         $sql = "INSERT INTO User (login,password,last_name,first_name,email) values (?,?,?,?,?)";
-        $pdo->preapare($sql)->execute([$login,$password,$last_name,$first_name,$email]);
+        $pdo->prepare($sql)->execute([$login,$password,$last_name,$first_name,$email]);
         return true;
     }
 }
@@ -126,7 +126,7 @@ function change_login($login,$newlogin){
         return false;
     }else{
         $sql="UPDATE User set login=? where login=?";
-        $pdo->preapare($sql)->execute([$newlogin,$login]);
+        $pdo->prepare($sql)->execute([$newlogin,$login]);
         return true;
     }
 }
