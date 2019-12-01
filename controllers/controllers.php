@@ -98,7 +98,3 @@ function change_login(){
         }
 }
 
-/*change password*/
-function change_password(){
-
-}
