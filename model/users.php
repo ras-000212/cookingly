@@ -3,8 +3,7 @@
 function user_exists_db ($login,$password){
     include ('./model/connectDB.php');
     if(login_exists_db($login)){
-        $stmt = $pdo->query("select * from User where login='$login' and password = '$password'");
-        if($row = $stmt->fetch()){
+        if(password_verify($_POST['password'], $row['password'])){
             return true;
         }
         return false;
@@ -91,10 +90,6 @@ function add_food_db($login,$food_name,$quantity){
     if($res==null){
        $pdo->query("INSERT INTO Food (Id_Food,Id_User,Quantity) values($IdFood,$IdUser,$quantity)");
 
-    }
-    else{
-        $pdo->query("UPDATE Food set quantity='$quantity' where Id_user='$IdUser' and Id_Food='$IdFood'");
-        }
 
    }
 /*get food Id */
