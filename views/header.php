@@ -4,7 +4,6 @@
 <html>
 <head>
     <title>Header</title>
-   <!-- <link rel="stylesheet" type="text/css" href="style.css"/> A DEFINIR-->
     <meta charset="utf-8">
 </head>
 
@@ -16,10 +15,10 @@
 	</header>
 	<nav>
         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="fridge.php">Fridge</a></li>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="signOut.php">Sign out</a></li>
+            <li><a href="index.php?controle=controllers&action=authentification">Home</a></li>
+            <li><a href="index.php?controle=controllers&action=fridge">Fridge</a></li>
+            <li><a href="index.php?controle=controllers&action=profile">Profile</a></li>
+            <li><a href="index.php?controle=controllers&action=signOut">Sign out</a></li>
         </ul> 
 	</nav>
 
