@@ -104,7 +104,7 @@ function change_login(){
     }      
 }
 /*add food to storage */
-function add-food(){
+function add_food(){
     include ("./model/users.php");
     $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
 
@@ -112,6 +112,14 @@ function add-food(){
     
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
-    
+    if($food_name==null or $quantity==null){
+        $_SESSION['error']='you can t add ';
+        
+        
+     }
+    elseif(quantity>0){
+        
+    }
+
 }
 
