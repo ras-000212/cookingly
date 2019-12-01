@@ -35,3 +35,10 @@ function get_user_foods_db($login) {
      return $food;
 
 }
+
+function remove_food_db($login,$food){
+     include ('./model/connectDB.php');
+
+     $sql = $pdo->query("")
+
+}
