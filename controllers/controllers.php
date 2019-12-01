@@ -114,12 +114,16 @@ function add_food(){
     
     if($food_name==null or $quantity==null){
         $_SESSION['error']='you can t add ';
-        
+        require ("./views/fridge.php");
         
      }
-    elseif(quantity>0){
+    elsif(quantity>0){
         add_food_db($login,$food_name,$quantity);
+        require ("./views/fridge.php");
     }
+    else{
+        require ("./views/fridge.php");
+     }
 
 }
 
