@@ -24,18 +24,22 @@
             </t>
 
         <?php
-            if($row=$res->fetch() != null ){
-                do{?>
-                <tr>
-                    <td> <?php echo $row['Name'] ?> </td>
-                    <td> <?php echo $row['Nutriction'] ?> </td>
-                    <td> <?php echo $row['Quantity'] ?> </td>
-                </tr>
-                <?php }	while($row=$res->fetch());
-                } else{?>
-                <tr>
-                <td colspan=3> No food here ! Please add some food !</td>
-                </tr> <?php }?>
+            try{
+                if($row=$res->fetch()){
+                    do{?>
+                    <tr>
+                            <td> <?php echo $row['Name'] ?> </td>
+                        <td> <?php echo $row['Nutriction'] ?> </td>
+                        <td> <?php echo $row['Quantity'] ?> </td>
+                    </tr>
+                    <?php }	while($row=$res->fetch());
+                    } else{?>
+                    <tr>
+                    <td colspan=3> No food here ! Please add some food !</td>
+                    </tr> <?php }}
+            catch (PDOException $e) {
+                print $e->getMessage();
+            } ?>
         </table>
     </div> 
     <div id="add">
