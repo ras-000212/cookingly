@@ -28,7 +28,7 @@
         </fieldset>
     </form>
 
-    <?php include ('index.php?controle=controllers&action=foot')?>
+    <?php include ('./views/footer.php')?>
 
 </body>
 </html>
