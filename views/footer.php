@@ -4,14 +4,12 @@
 <html>
 <head>
     <title>Footer</title>
-   <!-- <link rel="stylesheet" type="text/css" href="style.css"/> A DEFINIR-->
     <meta charset="utf-8">
 </head>
 
-
 <body>
 
-    <footer>
+    <footer style="position:absolute; bottom:0;">
             <fieldset> created by Gaelle, Noelle and Alexis</fieldset>
     </footer>
 
