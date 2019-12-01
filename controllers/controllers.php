@@ -85,18 +85,6 @@ function profile(){
     require ("./views/profile.php");
 }
 
-/*add header on top of every page*/
-function head(){
-    include ("./model/users.php");
-    require ("./views/header.php");
-}
-
-/*add footer on the bottom of every page*/
-function foot(){
-    include ("./model/users.php");
-    require ("./views/footer.php");
-}
-
 /*change login */
 function change_login(){
     include ("./model/users.php");
