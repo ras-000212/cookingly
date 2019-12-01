@@ -143,7 +143,7 @@ function change_password(){
 
     if($password !== $password_confirm){
         $_SESSION['error_password']='not the same password';
-    }elseif{
+    }else{
         $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
         change_password_db($login,$hash);
     }
