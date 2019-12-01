@@ -64,7 +64,29 @@ try {
         </table>
     </div> 
     <div id="add">
-        <h1>Ajout d'aliments</h1>	
+        <h1>Ajout d'aliments</h1>
+	<form>
+		<div class="list-add">
+			<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
+				$row=$res->fetch()?>
+			<label for="select-food">Choose an aliment <br></label>
+			<select name="list-food"id="select-food"size="?php echo $row['count']?>>
+			<?php $res=$pdo->query("Select Name from Food_Definition");
+			while($row=$res->fetch()){ ?>
+				<option value=" <?php $row['Name']?>"><?php echo $row['Name']?></option>
+				<?php } ,>
+			</select>
+			<input list="foods" type="text" id="choose-food">
+			<datalist id="foods">
+				<select name="list-food" id="select-food">
+				<?php $res=$pdo->query("Select Name from Food_Definition");
+				while($row=$res->fetch()){?>
+					<option value="<?php $row['Name']?>">
+				<?php } ?>
+				</select>
+			</datalist>
+		</div>
+	</form>    
     </div>
 
     <?php include ('./views/footer.php');?>
