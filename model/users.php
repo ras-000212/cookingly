@@ -12,7 +12,7 @@ function user_exists_db ($login,$password){
     return false;
 }
 
-/* verify if the login already exist in DB*/
+/* verify if the login already exists in DB*/
 function login_exists_db ($login){
     include ('./model/connectDB.php');
     try{
@@ -20,20 +20,24 @@ function login_exists_db ($login){
         $stmt->execute([$login]);
     }catch(\PDOException $e){
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        //false if the login doesn't exist
         return false;
     }
+    //true if the login exists
     return true;
 }
 
 
-/* verify if the mail already exist in DB*/
+/* verify if the mail already exists in DB*/
 function email_exists_db($email){
     include ('./model/connectDB.php');
     $stmt = $pdo->query("select * from User where email='$email'");
     if ($stmt){
+        //true if the email exists
         return true;
     }
     else{
+        //false if the email doesn't exist
         return false;
     }
 }
@@ -54,7 +58,7 @@ function create_user_db($login,$password,$last_name,$first_name,$email) {
 /*change login of a user*/
 function change_login_db($login,$newlogin){
     include ('./model/connectDB.php');
-    if(!login_exists_db($newlogin)){
+    if(login_exists_db($newlogin)){
         return false;
     }else{
         $sql="UPDATE User set login=? where login=?";
