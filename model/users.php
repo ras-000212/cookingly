@@ -2,7 +2,7 @@
 /*verify the login and password entered*/
 function user_exists_db ($login,$password){
     include ('./model/connectDB.php');
-    if(login_exists($login)){
+    if(login_exists_db($login)){
         $stmt = $pdo->query("select * from User where login='$login' and password = '$password'");
         if($stmt){
             return true;
@@ -41,7 +41,7 @@ function email_exists_db($email){
 /* add user in the DB */
 function create_user_db($login,$password,$last_name,$first_name,$email) {
     include ('./model/connectDB.php');
-    if(login_exists($login) or email_exist($email)){
+    if(login_exists_db($login) or email_exist($email)){
         return false;
     }
     else{
@@ -54,7 +54,7 @@ function create_user_db($login,$password,$last_name,$first_name,$email) {
 /*change login of a user*/
 function change_login_db($login,$newlogin){
     include ('./model/connectDB.php');
-    if(!login_exists($newlogin)){
+    if(!login_exists_db($newlogin)){
         return false;
     }else{
         $sql="UPDATE User set login=? where login=?";
