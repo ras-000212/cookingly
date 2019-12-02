@@ -122,13 +122,17 @@ function add_food(){
     $food_name=!empty($_POST['list_food']) ? $_POST['list_food'] : NULL;
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
-    $_SESSION['error']=$food_name;
-    
-    if($food_name==null){
-        $_SESSION['error']='you can not add : you do not select the food ';
+     if($food_name==null and $quantity==null){
+        $_SESSION['error']='you can not remove : you do not select the food and the quantity';
      }
+    elseif($food_name==null){
+         $_SESSION['error']='you can not remove : you do not select the food';
+    }
     elseif($quantity==null){
-        $_SESSION['error']='you can not add : you do not put the quantity ';
+        $_SESSION['error']='you can not remove : you do not put the quantity ';
+    }
+    elseif($quantity<=0){
+        $_SESSION['error']='you can not remove : the quantity is negative or equal to 0 ';
     }
     elseif($quantity>0){
         add_food_db($login,$food_name,$quantity);
@@ -137,7 +141,7 @@ function add_food(){
 
 }
 
-/*add food to storage */
+/*remove food to storage */
 function remove_food(){
     include ("./model/users.php");
      $login=$_SESSION['login'];
@@ -145,15 +149,20 @@ function remove_food(){
     $food_name=!empty($_POST['list_food_remove']) ? $_POST['list_food_remove'] : NULL;
     $quantity=!empty($_POST['quantity-remove']) ? $_POST['quantity-remove'] : NULL;
     
-    $_SESSION['error']=$food_name;
     
-    if($food_name==null){
-        $_SESSION['error']='you can not remove : you do not select the food ';
+    if($food_name==null and $quantity==null){
+        $_SESSION['error']='you can not remove : you do not select the food and the quantity';
      }
+    elseif($food_name==null){
+         $_SESSION['error']='you can not remove : you do not select the food';
+    }
     elseif($quantity==null){
         $_SESSION['error']='you can not remove : you do not put the quantity ';
     }
-    elseif($quantity>0){
+    elseif($quantity<=0){
+        $_SESSION['error']='you can not remove : the quantity is negative or equal to 0';
+    }
+    elseif($quantity<0){
         remove_food_db($login,$food_name,$quantity);
     }
  require ("./views/fridge.php");
