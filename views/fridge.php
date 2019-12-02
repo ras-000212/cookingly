@@ -4,11 +4,11 @@
 <html>
 <head>
     	<title>Fridge</title>
-	<link rel="stylesheet" href="style.css" />
     	<meta charset="utf-8">
-	
 	<style>
- 		
+ 		.storage{
+		 margin-bottom: 60px;
+		}
 	</style>
 </head>
 
