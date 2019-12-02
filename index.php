@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(!empty($_SESSION['error'])){
+    echo($_SESSION['error']);
+}
+
 if (isset($_GET['controle']) and isset($_GET['action'])){
     $controle = $_GET['controle'];
     $action=$_GET['action'];
