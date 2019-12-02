@@ -3,8 +3,9 @@
 
 <html>
 <head>
-    <title>Fridge</title>
-    <meta charset="utf-8">
+    	<title>Fridge</title>
+	<link rel="stylesheet" href="style.css" />
+    	<meta charset="utf-8">
 </head>
 
 
