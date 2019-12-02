@@ -64,7 +64,7 @@ try {
         </table>
     </div> 
     <div id="add">
-        <h1>Ajout d'aliments</h1>
+        <h1>Add food</h1>
 	<form method="post" action="index.php?controle=controllers&action=add_food">
 		<div class="list-add">
 			<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
