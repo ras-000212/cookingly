@@ -162,7 +162,7 @@ function remove_food(){
     elseif($quantity<=0){
         $_SESSION['error']='you can not remove : the quantity is negative or equal to 0';
     }
-    elseif($quantity<0){
+    elseif($quantity>0){
         remove_food_db($login,$food_name,$quantity);
     }
  require ("./views/fridge.php");
