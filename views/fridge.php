@@ -64,11 +64,11 @@ try {
         </table>
     </div> 
     <div id="add">
-        <h1>Add food</h1>
+        <h3>Add food</h3>
 	<form method="post" action="index.php?controle=controllers&action=add_food">
 		<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
 			$row=$res->fetch();?>
-		<label for="select-food">Choose an aliment <br></label>
+		<label for="select-food">Choose an aliment to add<br></label>
 		<select name="list_food" id="select-food" >
 			<option value="">--Please choose a food--</option>
 			<?php $res=$pdo->query("Select Name from Food_Definition");
@@ -80,7 +80,25 @@ try {
 		<input type="submit" value="Add food to your storage!">
 	</form>    
     </div>
-
+	
+    <div id="remove">
+        <h3>Remove food</h3>
+	<form method="post" action="index.php?controle=controllers&action=remove_food">
+		<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
+			$row=$res->fetch();?>
+		<label for="select-food_remove">Choose an aliment to remove <br></label>
+		<select name="list_food_remove" id="select-food" >
+			<option value="">--Please choose a food--</option>
+			<?php $res=$pdo->query("Select Name from Food_Definition");
+			while($row=$res->fetch()){ ?>
+				<option value="<?php echo $row['Name']?>"><?php echo $row['Name']?></option>
+			<?php } ?>
+		</select> 
+		<input type="number" name="quantity-remove" placeholder="quantity to remove">
+		<input type="submit" value="remove food to your storage!">
+	</form>    
+    </div>
+	
     <?php include ('./views/footer.php');?>
 
 </body>
