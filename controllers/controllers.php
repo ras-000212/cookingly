@@ -123,7 +123,7 @@ function add_food(){
     //!empty($_POST['list_food']) ? $_POST['list_food'] : NULL;
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
-    $_SESSION['list-food']=$food_name;
+    $_SESSION['error']=$food_name;
     
     if($food_name==null){
         $_SESSION['error']='you can not add you do not select the food ';
