@@ -140,6 +140,7 @@ function change_login(){
             $_SESSION['error']='login already used';
         }
         else{
+            change_login_db($login,$new_login);
             $_SESSION['login']=$new_login;
             require ("./views/profile.php");
         }
