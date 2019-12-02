@@ -66,7 +66,6 @@ function signOut(){
 /*open the fridge page*/
 function fridge(){
      include ("./model/fridge.php");
-
      require ("./views/fridge.php");
 }
 
@@ -124,7 +123,7 @@ function add_food(){
     
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
-    echo $food_name;
+    $_SESSION['list-food']=$food_name;
     
     if($food_name==null or $quantity==null){
         $_SESSION['error']='you can not add ';
