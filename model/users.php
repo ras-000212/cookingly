@@ -109,8 +109,9 @@ function remove_food_db($login,$food_name,$quantity){
     $res=$pdo->query($sql);
      if($row = $res->fetch()){
          $row = $res->fetch();
+         $old_quantity = $row['quantity']
          
-         if($row['quantity']>$quantity){
+         if($old_quantity>$quantity){
               $pdo->query("UPDATE Food set quantity=quantity-'$quantity' where Id_User='$IdUser' and Id_Food='$IdFood'");
          }
          else{
