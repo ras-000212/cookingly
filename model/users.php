@@ -109,17 +109,13 @@ function add_food_db($login,$food_name,$quantity){
 function getfoodId($food_name){
     include('./model/connectDB.php');
     $res=$pdo->query("Select Id_Food from Food_Definition where name ='$food_name'");
-     if($foodId = $res->fetch()){
-          return $foodId;
-     }
+      return $res;
    }
 
 /*get user Id */
 function getUserId($login){
     include('./model/connectDB.php');
     $res=$pdo->query("Select Id_User from User where login='$login'");
-     if($UserId = $res->fetch()){
-          return $UserId;
-     }
+  return $res;
    
    }
