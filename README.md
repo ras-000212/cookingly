@@ -7,9 +7,11 @@ To use all the features listed down bellow you must have an account.
 ### Fridge
 You can have a view of what you have in your fridge.
 #### Adding food
-With the listbox you can choose the food that you want to add and the quantity.
+With the listbox you can choose the food and the quantity that you want to add.
 
 #### Remove food
+With the listbox you can choose the food and the quantity that you want to remove.
+
 
 ### Profile
 #### Change your login
