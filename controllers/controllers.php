@@ -131,7 +131,7 @@ function change_login(){
         require ("./views/change_login.php");
     }else{
         if(!change_login_db($login, $new_login)){
-            $_SESSION['error_login']='login already used';
+            $_SESSION['error']='login already used';
         }
         else{
             $_SESSION['login']=$new_login;

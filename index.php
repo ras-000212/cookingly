@@ -23,11 +23,16 @@ function route($controle,$action){
     $action();
 }
 
-<?php if(isset($_SESSION['error'])){?>
+<?php if(isset($_SESSION['error'])){?>	
 		<?php foreach($_SESSION['error'] as $type => $message):?>
-			<div class="alert alert-<?=$type;?>">
+			<div class="alert alert-<?=$type;?>
 				<?= $message;?>
 			</div>
 		<?php endforeach;?>
 		<?php unset($_SESSION['error']);?>
 		<?php }; ?>
+
+		<?php if(isset($_SESSION['error']){
+			echo $_SESSION['error'];
+			unset($_SESSION['error'];
+		}?>
