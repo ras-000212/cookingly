@@ -117,10 +117,9 @@ function change_login(){
 /*add food to storage */
 function add_food(){
     include ("./model/users.php");
-    $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
+     $login=$_SESSION['login'];
     
-    $food_name=$_POST['list_food'];
-    //!empty($_POST['list_food']) ? $_POST['list_food'] : NULL;
+    $food_name=!empty($_POST['list_food']) ? $_POST['list_food'] : NULL;
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
     $_SESSION['error']=$food_name;
