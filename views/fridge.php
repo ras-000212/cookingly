@@ -72,7 +72,7 @@ try {
 			<label for="select-food">Choose an aliment <br></label>
 			<!--size=<?php //echo $row['count']?> -->
 		
-			<select name="foodList" id="select-food" >
+			<select name="list-food" id="select-food" >
 				<option value="">--Please choose a food--</option>
 				<?php $res=$pdo->query("Select Name from Food_Definition");
 				while($row=$res->fetch()){ ?>
