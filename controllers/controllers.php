@@ -118,25 +118,23 @@ function change_login(){
 function add_food(){
     include ("./model/users.php");
     $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
-
+    
     $food_name=!empty($_POST['list-food']) ? $_POST['list-food'] : NULL;
     
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
     $_SESSION['list-food']=$food_name;
     
-    if($food_name==null or $quantity==null){
-        $_SESSION['error']='you can not add ';
-        require ("./views/fridge.php");
-        
+    if($food_name==null){
+        $_SESSION['error']='you can not add you do not select the food ';
      }
+    elseif($quantity==null){
+        $_SESSION['error']='you can not add you do not put the quantity ';
+    }
     elseif($quantity>0){
         add_food_db($login,$food_name,$quantity);
-        require ("./views/fridge.php");
     }
-    else{
-        require ("./views/fridge.php");
-     }
+ require ("./views/fridge.php");
 
 }
 
