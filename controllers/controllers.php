@@ -14,6 +14,7 @@ function authentification(){
             header("Location:" .$url);
         }else{
             $_SESSION['error']='invalid login or password';
+            echo("invalid login or password");
             require ("./views/home.php");
         }
     }
@@ -37,12 +38,16 @@ function sign_up(){
 
         if(login_exists_db($login)){
             $_SESSION['error_login']='login already use';
+            echo('login already use');
+            
         }
         elseif(email_exists_db($email)){
             $_SESSION['error_email']='email already use';
+            echo('email already use');
         }
         elseif($password !== $password_confirm){
             $_SESSION['error_password']='not the same password';
+            echo('not the same password');
         }else{
             $password= password_hash($password,PASSWORD_BCRYPT,["cost"=>$cost]);
             create_user_db($login,$password,$last_name,$first_name,$email);
@@ -105,6 +110,7 @@ function change_login(){
     }else{
         if(!change_login_db($login, $new_login)){
             $_SESSION['error_login']='login already used';
+            echo('login already used');
         }
         else{
             require ("./views/profile.php");
@@ -121,7 +127,8 @@ function add_food(){
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
     if($food_name==null or $quantity==null){
-        $_SESSION['error']='you can t add ';
+        $_SESSION['error']='you can not add ';
+        echo('you can not add ');
         require ("./views/fridge.php");
         
      }
@@ -144,6 +151,7 @@ function change_password(){
 
     if($password !== $password_confirm){
         $_SESSION['error_password']='not the same password';
+        echo('not the same password');
     }else{
         $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
         change_password_db($login,$hash);
