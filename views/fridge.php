@@ -66,7 +66,7 @@ try {
     <div id="add">
         <h1>Add food</h1>
 	<form method="post" action="index.php?controle=controllers&action=add_food">
-		<div class="list-add">
+		<!--<div class="list-add"> -->
 			<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
 				$row=$res->fetch();?>
 			<label for="select-food">Choose an aliment <br></label>
@@ -79,7 +79,7 @@ try {
 			</select> 
 			<input type="number" name="quantity-add" placeholder="quantity to add">
 			<input type="submit" value="Add food to your storage!">
-		</div>	
+		<!--</div> -->
 	</form>    
     </div>
 
