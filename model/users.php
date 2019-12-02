@@ -61,10 +61,8 @@ function create_user_db($login,$password,$last_name,$first_name,$email) {
 /*change login of a user*/
 function change_login_db($login, $newlogin){
     include ('./model/connectDB.php');
-        $sql = "update User set login=? where login=?";
-        $pdo->prepare($sql)->execute([$newlogin,$login]);
-        return true;
-    }
+    $sql = "update User set login=? where login=?";
+    $pdo->prepare($sql)->execute([$newlogin,$login]);
 }
 
 /*change password of a user*/
