@@ -99,7 +99,7 @@ function change_password(){
     $login=$_SESSION['login'];
     $password=$_POST['password'];
     $new_password=$_POST['new_password'];
-    if (!user_exists_db($login,$password)){
+    if (user_exists_db($login,$password) <> True){
         $_SESSION['error']="the password is wrong";
         return false;
     }
