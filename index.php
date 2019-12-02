@@ -1,9 +1,11 @@
 <?php
 session_start();
 
-if(isset($_SESSION['error'])){
-    echo($_SESSION['error']);
-}
+//if(isset($_SESSION['error'])){
+//    echo($_SESSION['error']);
+//}
+
+
 
 if (isset($_GET['controle']) and isset($_GET['action'])){
     $controle = $_GET['controle'];
@@ -21,4 +23,11 @@ function route($controle,$action){
     $action();
 }
 
-unset($_SESSION['error']);
+<?php if(isset($_SESSION['error'])){?>
+		<?php foreach($_SESSION['error'] as $type => $message):?>
+			<div class="alert alert-<?=$type;?>">
+				<?= $message;?>
+			</div>
+		<?php endforeach;?>
+		<?php unset($_SESSION['error']);?>
+		<?php }; ?>
