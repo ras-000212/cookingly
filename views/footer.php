@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <style>
             footer{
-                position:absolute; 
+                position:relative; 
                 bottom:0;
                 left: 0; 
                 right: 0;
