@@ -73,8 +73,8 @@ function change_login_db($login, $newlogin){
 /*change password of a user*/
 function change_password_db($login,$password){
     include ('./model/connectDB.php');
-    $sql=$pdo->prepare("update User set password= ? where login= ?");
-    $sql->execute([$login,$password]);
+    $sql="Update User set password= ? where login= ?";
+    $pdo->prepare($sql)->execute([$password,$login]);
 }
 
 /*delete a user from the DB*/
