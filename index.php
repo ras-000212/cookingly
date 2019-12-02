@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!empty($_SESSION['error'])){
+if(isset($_SESSION['error'])){
     echo($_SESSION['error']);
 }
 
@@ -20,3 +20,5 @@ function route($controle,$action){
     require ('./controlers/' . $controle .'php');
     $action();
 }
+
+unset($_SESSION['error']);
