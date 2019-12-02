@@ -63,7 +63,7 @@ try {
                 </tr> <?php }?>
         </table>
     </div> 
-    <div id="add" border="1px">
+    <div id="add">
         <h1>Add food</h1>
 	<form method="post" action="index.php?controle=controllers&action=add_food">
 		<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
