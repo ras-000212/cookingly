@@ -110,7 +110,7 @@ function getfoodId($food_name){
     include('./model/connectDB.php');
     $res=$pdo->query("Select Id_Food from Food_Definition where name ='$food_name'");
     $row=$res->fetch();  
-    return echo $row[0];
+    return echo $row['Id_Food'];
    }
 
 /*get user Id */
@@ -118,5 +118,5 @@ function getUserId($login){
     include('./model/connectDB.php');
     $res=$pdo->query("Select Id_User from User where login='$login'");
      $row=$res->fetch(); 
-    return echo $row[0];
+    return echo $row['Id_User'];
    }
