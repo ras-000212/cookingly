@@ -37,16 +37,16 @@ function sign_up(){
         $cost=5;
 
         if(login_exists_db($login)){
-            $_SESSION['error_login']='login already use';
+            $_SESSION['error']='login already use';
             echo('login already use');
             
         }
         elseif(email_exists_db($email)){
-            $_SESSION['error_email']='email already use';
+            $_SESSION['error']='email already use';
             echo('email already use');
         }
         elseif($password !== $password_confirm){
-            $_SESSION['error_password']='not the same password';
+            $_SESSION['error']='not the same password';
             echo('not the same password');
         }else{
             $password= password_hash($password,PASSWORD_BCRYPT,["cost"=>$cost]);
@@ -148,8 +148,13 @@ function change_password(){
     require ("./views/change_password.php");
     $cost=5;
     $login=$_SESSION['login'];
+    $password=$_POST['password'];
     $new_password=$_POST['new_password'];
-
+    if (!user_exists_db($login,$password)){
+        $_SESSION['error']="the password is wrong";
+        require ("./views/change_password.php");
+        return false;
+    }
     if($password !== $password_confirm){
         $_SESSION['error_password']='not the same password';
         echo('not the same password');
