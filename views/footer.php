@@ -9,7 +9,7 @@
 
 <body>
 
-    <footer style="position:absolute; bottom:0;">
+    <footer style="position:absolute; bottom:0;left: 0; right: 0">
             <fieldset> created by Gaelle, Noelle and Alexis</fieldset>
     </footer>
 
