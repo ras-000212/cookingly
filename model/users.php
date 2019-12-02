@@ -89,8 +89,8 @@ function add_food_db($login,$food_name,$quantity){
     $IdUser=getUserId($login);
     $IdFood=getFoodId($food_name);
     
-    $sql ="Select quantity from Food where Id_Food=? and Id_User=?";
-    $res=$pdo->prepare($sql)->execute([$IdFood,$IdUser]);
+    $sql ="Select quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'";
+    $res=$pdo->query($sql);
     
     if($res==null){
       $pdo->query("INSERT INTO Food (Id_Food,Id_User,Quantity) values('$IdFood','$IdUser','$quantity')");
