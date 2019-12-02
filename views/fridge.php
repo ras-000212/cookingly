@@ -6,10 +6,16 @@
     	<title>Fridge</title>
 	<link rel="stylesheet" href="style.css" />
     	<meta charset="utf-8">
+	
+	<style>
+ 		.body{
+			position:relative;
+		}
+	</style>
 </head>
 
 
-<body position=relative;>
+<body>
     <?php
     $host ='localhost';
 $db ='galiixy';
