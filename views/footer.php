@@ -5,11 +5,19 @@
 <head>
     <title>Footer</title>
     <meta charset="utf-8">
+    <style>
+            .footer{
+                position:absolute; 
+                bottom:0;
+                left: 0; 
+                right: 0;
+            }
+    </style>
 </head>
 
 <body>
 
-    <footer style="position:absolute; bottom:0;left: 0; right: 0">
+    <footer >
             <fieldset> created by Gaelle, Noelle and Alexis</fieldset>
     </footer>
 
