@@ -8,7 +8,7 @@
 </head>
 
 
-<body>
+<body position='relative'>
     <?php
     $host ='localhost';
 $db ='galiixy';
