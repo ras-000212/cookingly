@@ -8,7 +8,6 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="style.css" />
     <title>Header</title>
     <meta charset="utf-8">
 </head>
