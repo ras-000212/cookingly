@@ -70,8 +70,10 @@ try {
 			<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
 				$row=$res->fetch();?>
 			<label for="select-food">Choose an aliment <br></label>
-			
-			<select name="list_food" id="select-food" size=<?php echo $row['count']?>>
+			<!--size=<?php //echo $row['count']?> -->
+		
+			<select name="list_food" id="select-food" >
+				<option value="">--Please choose a food--</option>
 				<?php $res=$pdo->query("Select Name from Food_Definition");
 				while($row=$res->fetch()){ ?>
 					<option value="<?php $row['Name']?>"><?php echo $row['Name']?></option>
