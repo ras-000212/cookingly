@@ -12,7 +12,7 @@
 
     <?php include ('./views/header.php');?>
 
-    <h1>Welcome to your account page</h1>
+    <h2>Welcome to your account page</h2>
 
     <p><a href="index.php?controle=controllers&action=change_login">Change your login</a></p>
     <p><a href="index.php?controle=controllers&action=change_password">Change your password</a></p>
