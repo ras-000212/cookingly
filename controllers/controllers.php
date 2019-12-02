@@ -72,7 +72,7 @@ function fridge(){
 /*delete your account*/
 function delete(){
     include ("./model/users.php");
-    $login = $_POST['login'];
+    $login = $_SESSION['login'];
     delete_user_db($login);
     require("./views/home.php");
 }
