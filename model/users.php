@@ -88,10 +88,6 @@ function add_food_db($login,$food_name,$quantity){
     include('./model/connectDB.php');
     $IdUser=getUserId($login);
     $IdFood=getFoodId($food_name);
-    echo $IdUser;
-    echo $IdFood;
-    echo $quantity;
-    
     
     $sql ="Select quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'";
     $res=$pdo->query($sql);
@@ -101,6 +97,19 @@ function add_food_db($login,$food_name,$quantity){
     else{
         $pdo->query("INSERT INTO Food (Id_Food,Id_User,Quantity) values('$IdFood','$IdUser','$quantity')");
         }
+    }
+
+/* remove food to the fridge of the user*/
+function remove_food_db($login,$food_name,$quantity){
+    include('./model/connectDB.php');
+    $IdUser=getUserId($login);
+    $IdFood=getFoodId($food_name);
+ 
+    $sql ="Select quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'";
+    $res=$pdo->query($sql);
+     if($row = $res->fetch()){
+        $pdo->query("UPDATE Food set quantity=quantity-'$quantity' where Id_User='$IdUser' and Id_Food='$IdFood'");
+     }
     }
 
 
