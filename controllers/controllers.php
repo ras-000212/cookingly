@@ -38,19 +38,22 @@ function sign_up(){
         if(login_exists_db($login)){
             $_SESSION['error']='login already use';
             echo('login already use');
+            require ("./views/signUp.php");
             
         }
         elseif(email_exists_db($email)){
             $_SESSION['error']='email already use';
             echo('email already use');
+            require ("./views/signUp.php");
         }
         elseif($password !== $password_confirm){
             $_SESSION['error']='not the same password';
             echo('not the same password');
+            require ("./views/signUp.php");
         }else{
             $password= password_hash($password,PASSWORD_BCRYPT,["cost"=>$cost]);
             create_user_db($login,$password,$last_name,$first_name,$email);
-            require("./views/fridge.php");
+            require ("./views/fridge.php");
         }
     }
 
