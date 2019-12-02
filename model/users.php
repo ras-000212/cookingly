@@ -107,6 +107,8 @@ function remove_food_db($login,$food_name,$quantity){
  
     $sql ="Select quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'";
     $res=$pdo->query($sql);
+    
+    echo 'test';
      if($row = $res->fetch()){
          $row = $res->fetch();
          $old_quantity = $row['quantity'];
