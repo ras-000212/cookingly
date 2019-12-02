@@ -13,7 +13,7 @@ function authentification(){
             $url ="index.php?controle=controllers&action=fridge";
             header("Location:" .$url);
         }else{
-            $_SESSION['error']='invalid login or password';
+            $_SESSION['flash']='invalid login or password';
             require ("./views/home.php");
         }
     }
@@ -36,17 +36,13 @@ function sign_up(){
         $cost=5;
 
         if(login_exists_db($login)){
-            $_SESSION['error']='login already use';
-            echo('login already use');
-            
+            $_SESSION['flash']='login already use';            
         }
         elseif(email_exists_db($email)){
-            $_SESSION['error']='email already use';
-            echo('email already use');
+            $_SESSION['flash']='email already use';
         }
         elseif($password !== $password_confirm){
-            $_SESSION['error']='not the same password';
-            echo('not the same password');
+            $_SESSION['flash']='not the same password';
         }else{
             $password= password_hash($password,PASSWORD_BCRYPT,["cost"=>$cost]);
             create_user_db($login,$password,$last_name,$first_name,$email);
@@ -100,11 +96,11 @@ function change_password(){
     $password=$_POST['password'];
     $new_password=$_POST['new_password'];
     if (user_exists_db($login,$password) <> True){
-        $_SESSION['error']="the password is wrong";
+        $_SESSION['flash']="the password is wrong";
         return false;
     }
     if($password !== $password_confirm){
-        $_SESSION['error_password']='not the same password';
+        $_SESSION['flash']='not the same password';
     }else{
         $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
         change_password_db($login,$hash);
@@ -126,7 +122,7 @@ function change_login(){
         require ("./views/change_login.php");
     }else{
         if(!change_login_db($login, $new_login)){
-            $_SESSION['error_login']='login already used';
+            $_SESSION['flash']='login already used';
         }
         else{
             $_SESSION['login']=$new_login;
@@ -145,16 +141,16 @@ function add_food(){
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
      if($food_name==null and $quantity==null){
-        $_SESSION['error']='you can not remove : you do not select the food and the quantity';
+        $_SESSION['flash']='you can not remove : you do not select the food and the quantity';
      }
     elseif($food_name==null){
-         $_SESSION['error']='you can not remove : you do not select the food';
+         $_SESSION['flash']='you can not remove : you do not select the food';
     }
     elseif($quantity==null){
-        $_SESSION['error']='you can not remove : you do not put the quantity ';
+        $_SESSION['flash']='you can not remove : you do not put the quantity ';
     }
     elseif($quantity<=0){
-        $_SESSION['error']='you can not remove : the quantity is negative or equal to 0 ';
+        $_SESSION['flash']='you can not remove : the quantity is negative or equal to 0 ';
     }
     elseif($quantity>0){
         add_food_db($login,$food_name,$quantity);
@@ -173,16 +169,16 @@ function remove_food(){
     
     
     if($food_name==null and $quantity==null){
-        $_SESSION['error']='you can not remove : you do not select the food and the quantity';
+        $_SESSION['flash']='you can not remove : you do not select the food and the quantity';
      }
     elseif($food_name==null){
-         $_SESSION['error']='you can not remove : you do not select the food';
+         $_SESSION['flash']='you can not remove : you do not select the food';
     }
     elseif($quantity==null){
-        $_SESSION['error']='you can not remove : you do not put the quantity ';
+        $_SESSION['flash']='you can not remove : you do not put the quantity ';
     }
     elseif($quantity<=0){
-        $_SESSION['error']='you can not remove : the quantity is negative or equal to 0';
+        $_SESSION['flash']='you can not remove : the quantity is negative or equal to 0';
     }
     elseif($quantity>0){
         remove_food_db($login,$food_name,$quantity);
