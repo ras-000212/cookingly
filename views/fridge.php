@@ -5,12 +5,6 @@
 <head>
     	<title>Fridge</title>
     	<meta charset="utf-8">
-	<style>
- 		body {
-		 	margin-bottom: 60px;
-			padding-bottom:100px;
-		}
-	</style>
 </head>
 
 
@@ -69,7 +63,7 @@ try {
                 </tr> <?php }?>
         </table>
     </div> 
-    <div id="add">
+    <div id="add" border="1px">
         <h1>Add food</h1>
 	<form method="post" action="index.php?controle=controllers&action=add_food">
 		<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
