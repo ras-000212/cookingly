@@ -125,13 +125,36 @@ function add_food(){
     $_SESSION['error']=$food_name;
     
     if($food_name==null){
-        $_SESSION['error']='you can not add you do not select the food ';
+        $_SESSION['error']='you can not add : you do not select the food ';
      }
     elseif($quantity==null){
-        $_SESSION['error']='you can not add you do not put the quantity ';
+        $_SESSION['error']='you can not add : you do not put the quantity ';
     }
     elseif($quantity>0){
         add_food_db($login,$food_name,$quantity);
+    }
+ require ("./views/fridge.php");
+
+}
+
+/*add food to storage */
+function remove_food(){
+    include ("./model/users.php");
+     $login=$_SESSION['login'];
+    
+    $food_name=!empty($_POST['list_food_remove']) ? $_POST['list_food_remove'] : NULL;
+    $quantity=!empty($_POST['quantity-remove']) ? $_POST['quantity-remove'] : NULL;
+    
+    $_SESSION['error']=$food_name;
+    
+    if($food_name==null){
+        $_SESSION['error']='you can not remove : you do not select the food ';
+     }
+    elseif($quantity==null){
+        $_SESSION['error']='you can not remove : you do not put the quantity ';
+    }
+    elseif($quantity>0){
+        remove_food_db($login,$food_name,$quantity);
     }
  require ("./views/fridge.php");
 
