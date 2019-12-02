@@ -21,3 +21,4 @@ function route($controle,$action){
     $action();
 }
 
+unset($_SESSION['error']);
