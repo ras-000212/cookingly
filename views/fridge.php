@@ -8,7 +8,9 @@
     	<meta charset="utf-8">
 	
 	<style>
- 
+ 		.body{
+			position:relative;
+		}
 	</style>
 </head>
 
