@@ -49,7 +49,7 @@ try {
             WHERE u.login='$login'
             AND u.Id_User=food.Id_User
             AND food.Id_Food=f.Id_Food");
-            if($row=$res->fetch() != null ){
+            if($row=$res->fetch()){
                 do{?>
                 <tr>
                     <td> <?php echo $row['Name'] ?> </td>
