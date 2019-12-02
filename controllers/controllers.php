@@ -103,11 +103,12 @@ function change_password(){
     $login=$_SESSION['login'];
     $password=$_POST['password'];
     $new_password=$_POST['new_password'];
+    $new_password_confirm=$_POST['new_password_confirm'];
     if (!user_exists_db($login,$password)){
         $_SESSION['error']="the password is wrong";
         return false;
     }
-    if($password !== $password_confirm){
+    if($new_password != $new_password_confirm){
         $_SESSION['error']='not the same password';
     }else{
         $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
