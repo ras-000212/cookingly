@@ -6,7 +6,7 @@
     	<title>Fridge</title>
     	<meta charset="utf-8">
 	<style>
- 		.storage{
+ 		#storage{
 		 margin-bottom: 60px;
 		}
 	</style>
