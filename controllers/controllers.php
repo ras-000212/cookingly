@@ -68,7 +68,7 @@ function fridge(){
      include ("./model/fridge.php");
      require ("./views/fridge.php");
 }
-
+/* -------------------- User Function --------------------*/
 /*delete your account*/
 function delete(){
     include ("./model/users.php");
@@ -90,6 +90,25 @@ function food_user(){
         return $foods;
     }
     return $foods;
+}
+/*change the password*/
+function change_password(){
+    include ("./model/users.php");
+    require ("./views/change_password.php");
+    $cost=5;
+    $login=$_SESSION['login'];
+    $password=$_POST['password'];
+    $new_password=$_POST['new_password'];
+    if (!user_exists_db($login,$password)){
+        $_SESSION['error']="the password is wrong";
+        return false;
+    }
+    if($password !== $password_confirm){
+        $_SESSION['error_password']='not the same password';
+    }else{
+        $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
+        change_password_db($login,$hash);
+    }
 }
 
 /*open the profile page*/
@@ -115,6 +134,8 @@ function change_login(){
         }
     }      
 }
+
+/* -------------------- Fridge Function --------------------*/
 /*add food to storage */
 function add_food(){
     include ("./model/users.php");
@@ -170,24 +191,5 @@ function remove_food(){
 
 }
 
-/*change the password*/
-function change_password(){
-    include ("./model/users.php");
-    require ("./views/change_password.php");
-    $cost=5;
-    $login=$_SESSION['login'];
-    $password=$_POST['password'];
-    $new_password=$_POST['new_password'];
-    if (!user_exists_db($login,$password)){
-        $_SESSION['error']="the password is wrong";
-        require ("./views/change_password.php");
-        return false;
-    }
-    if($password !== $password_confirm){
-        $_SESSION['error_password']='not the same password';
-    }else{
-        $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
-        change_password_db($login,$hash);
-    }
-}
+
 
