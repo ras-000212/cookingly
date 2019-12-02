@@ -96,7 +96,7 @@ function add_food_db($login,$food_name,$quantity){
     $sql ="Select quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'";
     $res=$pdo->query($sql);
      if($row = $res->fetch()){
-        $pdo->query("UPDATE Food set quantity='$quantity' where Id_User='$IdUser' and Id_Food='$IdFood'");
+        $pdo->query("UPDATE Food set quantity=quantity+'$quantity' where Id_User='$IdUser' and Id_Food='$IdFood'");
      }
     else{
         $pdo->query("INSERT INTO Food (Id_Food,Id_User,Quantity) values('$IdFood','$IdUser','$quantity')");
