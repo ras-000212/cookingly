@@ -95,7 +95,7 @@ try {
 			<?php } ?>
 		</select> 
 		<input type="number" name="quantity-remove" placeholder="quantity to remove">
-		<input type="submit" value="remove food to your storage!">
+		<input type="submit" value="Remove food to your storage!">
 	</form>    
     </div>
 	
