@@ -35,7 +35,7 @@ function sign_up(){
         $email=$_POST['email'];
         $cost=5;
 
-        if(login_exists_db($login)){
+        if(login_exists_db($login)){    
             $_SESSION['error']='login already use';
             echo('login already use');
             require ("./views/signUp.php");
@@ -53,6 +53,7 @@ function sign_up(){
         }else{
             $password= password_hash($password,PASSWORD_BCRYPT,["cost"=>$cost]);
             create_user_db($login,$password,$last_name,$first_name,$email);
+            $_SESSION['login']=$login;
             require ("./views/fridge.php");
         }
     }
@@ -102,12 +103,12 @@ function change_password(){
     $login=$_SESSION['login'];
     $password=$_POST['password'];
     $new_password=$_POST['new_password'];
-    if (user_exists_db($login,$password) <> True){
+    if (!user_exists_db($login,$password)){
         $_SESSION['error']="the password is wrong";
         return false;
     }
     if($password !== $password_confirm){
-        $_SESSION['error_password']='not the same password';
+        $_SESSION['error']='not the same password';
     }else{
         $hash=password_hash($new_password,PASSWORD_BCRYPT,["cost"=>$cost]);
         change_password_db($login,$hash);

@@ -17,7 +17,7 @@
             </br>
             <label>New Password: <input type="password" name="new_password" maxlength="8" required/></label> 
             </br>
-            <label>Confirm Password: <input type="password_confirm" name="new_password_confirm" maxlength="8" required/></label> 
+            <label>Confirm Password: <input type="password" name="new_password_confirm" maxlength="8" required/></label> 
             </br>
             <input type="submit" value="Confirm" />
         </fieldset>
