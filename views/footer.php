@@ -6,7 +6,7 @@
     <title>Footer</title>
     <meta charset="utf-8">
     <style>
-            .footer{
+            footer{
                 position:absolute; 
                 bottom:0;
                 left: 0; 
@@ -17,7 +17,7 @@
 
 <body>
 
-    <footer >
+    <footer>
             <fieldset> created by Gaelle, Noelle and Alexis</fieldset>
     </footer>
 
