@@ -124,6 +124,8 @@ function add_food(){
     
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
+    echo $food_name;
+    
     if($food_name==null or $quantity==null){
         $_SESSION['error']='you can not add ';
         require ("./views/fridge.php");
