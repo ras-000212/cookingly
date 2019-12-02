@@ -98,7 +98,9 @@ function food_user(){
 /*change the password*/
 function change_password(){
     include ("./model/users.php");
-    require ("./views/change_password.php");
+    if(count($_POST)==0){
+        require ("./views/change_password.php");
+    }else{
     $cost=5;
     $login=$_SESSION['login'];
     $password=$_POST['password'];
@@ -115,6 +117,7 @@ function change_password(){
         change_password_db($login,$hash);
     }
 }
+}
 
 /*open the profile page*/
 function profile(){
@@ -130,7 +133,7 @@ function change_login(){
     if (count($_POST)==0){
         require ("./views/change_login.php");
     }else{
-        if(!change_login_db($login, $new_login)){
+        if(!login_exists_db($login)){
             $_SESSION['error']='login already used';
         }
         else{
