@@ -88,8 +88,14 @@ function add_food_db($login,$food_name,$quantity){
     include('./model/connectDB.php');
     $IdUser=getUserId($login);
     $IdFood=getFoodId($food_name);
-    echo $food_name;
-    $res=$pdo->query("Select Quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'");
+    echo $IdUser;
+    echo $IdFood;
+    
+    
+    $sql ="Select quantity from Food where Id_Food='$IdFood' and Id_User='$IdUser'";
+    $res=$pdo->query($sql);
+    
+    
     if($res==null){
       $pdo->query("INSERT INTO Food (Id_Food,Id_User,Quantity) values('$IdFood','$IdUser','$quantity')");
    }
@@ -102,13 +108,15 @@ function add_food_db($login,$food_name,$quantity){
 /*get food Id */
 function getfoodId($food_name){
     include('./model/connectDB.php');
-    $foodId=$pdo->query("Select Id_Food from Food_Definition where name ='$food_name'");
-    return $foodId;
+    $res=$pdo->query("Select Id_Food from Food_Definition where name ='$food_name'");
+    $row=$res->fetch();  
+    return echo $row[0];
    }
 
 /*get user Id */
 function getUserId($login){
     include('./model/connectDB.php');
-    $UserId=$pdo->query("Select Id_User from User where login='$login'");
-    return $UserId;
+    $res=$pdo->query("Select Id_User from User where login='$login'");
+     $row=$res->fetch(); 
+    return echo $row[0];
    }

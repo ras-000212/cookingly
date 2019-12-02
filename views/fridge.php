@@ -66,29 +66,22 @@ try {
     <div id="add">
         <h1>Add food</h1>
 	<form method="post" action="index.php?controle=controllers&action=add_food">
-		<div class="list-add">
+		<!--<div class="list-add"> -->
 			<?php $res =$pdo->query("Select Count(Id_Food) as count from Food_Definition");
 				$row=$res->fetch();?>
 			<label for="select-food">Choose an aliment <br></label>
-			
-			<select name="list-food" id="select-food" size=<?php echo $row['count']?>>
-			<?php $res=$pdo->query("Select Name from Food_Definition");
-			while($row=$res->fetch()){ ?>
-			<option value="<?php $row['Name']?>"><?php echo $row['Name']?></option>
-				<?php } ?>
-			</select>
-					<datalist id="foods">
-				<select name="list-food" id="select-food">
+			<!--size=<?php //echo $row['count']?> -->
+		
+			<select name="list_food" id="select-food" >
+				<option value="">--Please choose a food--</option>
 				<?php $res=$pdo->query("Select Name from Food_Definition");
-				while($row=$res->fetch()){?>
-					<option value="<?php $row['Name']?>">
-				<?php } ?>	
-
-				</select>
-			</datalist>
+				while($row=$res->fetch()){ ?>
+					<option value="<?php echo $row['Name']?>"><?php echo $row['Name']?></option>
+				<?php } ?>
+			</select> 
 			<input type="number" name="quantity-add" placeholder="quantity to add">
 			<input type="submit" value="Add food to your storage!">
-		</div>	
+		<!--</div> -->
 	</form>    
     </div>
 

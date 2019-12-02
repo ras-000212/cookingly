@@ -66,7 +66,6 @@ function signOut(){
 /*open the fridge page*/
 function fridge(){
      include ("./model/fridge.php");
-
      require ("./views/fridge.php");
 }
 
@@ -118,24 +117,23 @@ function change_login(){
 /*add food to storage */
 function add_food(){
     include ("./model/users.php");
-    $login=!empty($_POST['login']) ? $_POST['login'] : NULL;
-
-    $food_name=!empty($_POST['list-food']) ? $_POST['list-food'] : NULL;
+     $login=$_SESSION['login'];
     
+    $food_name=!empty($_POST['list_food']) ? $_POST['list_food'] : NULL;
     $quantity=!empty($_POST['quantity-add']) ? $_POST['quantity-add'] : NULL;
     
-    if($food_name==null or $quantity==null){
-        $_SESSION['error']='you can not add ';
-        require ("./views/fridge.php");
-        
+    $_SESSION['error']=$food_name;
+    
+    if($food_name==null){
+        $_SESSION['error']='you can not add you do not select the food ';
      }
+    elseif($quantity==null){
+        $_SESSION['error']='you can not add you do not put the quantity ';
+    }
     elseif($quantity>0){
         add_food_db($login,$food_name,$quantity);
-        require ("./views/fridge.php");
     }
-    else{
-        require ("./views/fridge.php");
-     }
+ require ("./views/fridge.php");
 
 }
 
